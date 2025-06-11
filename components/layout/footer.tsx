@@ -18,7 +18,7 @@ export function Footer() {
               <h3 className="text-sm font-semibold">Connect</h3>
               <div className="flex space-x-4">
                 <Link
-                  href="https://github.com/yourusername/cryptlock"
+                  href="https://github.com/Adityatorgal17/CryptLock"
                   target="_blank"
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
