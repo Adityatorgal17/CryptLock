@@ -233,7 +233,7 @@ export async function createUserKeys(email: string, masterPassword: string): Pro
   return {
     vaultKey,
     authKey,
-    salt: bufToHex(salt.buffer),
+    salt: bufToHex(salt)
   };
 }
 

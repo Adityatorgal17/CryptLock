@@ -9,10 +9,13 @@ export function encodeUtf8(str: string): Uint8Array {
   return new TextEncoder().encode(str);
 }
 
-export function bufToHex(buffer: ArrayBuffer): string {
-  return [...new Uint8Array(buffer)]
-    .map(b => b.toString(16).padStart(2, '0'))
-    .join('');
+function uint8ToBase64(bytes: Uint8Array): string {
+  return btoa(String.fromCharCode(...Array.from(bytes)));
+}
+
+export function bufToHex(bytes: ArrayBuffer | Uint8Array): string {
+  const arr = bytes instanceof Uint8Array ? bytes : new Uint8Array(bytes);
+  return Array.from(arr).map(b => b.toString(16).padStart(2, '0')).join('');
 }
 
 export function hexToUint8Array(hex: string): Uint8Array {
@@ -50,8 +53,9 @@ export async function deriveKey(
 export async function deriveVaultKey(password: string, email: string, salt: Uint8Array): Promise<string> {
   const combined = password + email;
   const vaultKeyBytes = await deriveKey(combined, salt);
-  return bufToHex(vaultKeyBytes.buffer);
+  return bufToHex(vaultKeyBytes); // no `.buffer` needed
 }
+
 
 export async function deriveAuthKey(vaultKeyHex: string, email: string): Promise<string> {
   const data = encodeUtf8(vaultKeyHex + email);
@@ -71,9 +75,10 @@ export async function encryptVault(
   const encryptedBuffer = await window.crypto.subtle.encrypt({ name: 'AES-GCM', iv }, key, plaintext);
 
   return {
-    encrypted: btoa(String.fromCharCode(...new Uint8Array(encryptedBuffer))),
-    iv: btoa(String.fromCharCode(...iv)),
-  };
+    encrypted: uint8ToBase64(new Uint8Array(encryptedBuffer)),
+    iv: uint8ToBase64(iv),
+  }
+
 }
 
 export async function decryptVault(
