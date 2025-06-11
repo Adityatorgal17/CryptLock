@@ -41,7 +41,7 @@ CryptLock ensures that your data remains private and secure using modern cryptog
 ## 📦 Getting Started
 
 ```bash
-git clone https://github.com/your-username/cryptlock-frontend.git
+git clone https://github.com/Adityatorgal17/CryptLock cryptlock-frontend   
 cd cryptlock-frontend
 npm install
 npm run dev
@@ -60,5 +60,5 @@ MIT License © 2025 [Aditya Torgal](https://adityatorgal.me)
 
 We welcome contributions! If you want to suggest improvements or report bugs:
 
-- Open an [issue](https://github.com/your-username/cryptlock-frontend/issues)
+- Open an [issue](https://github.com/Adityatorgal17/CryptLock/issues)
 - Submit a pull request
