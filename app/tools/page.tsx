@@ -25,7 +25,7 @@ import {
   EyeOff,
   Info
 } from 'lucide-react';
-import { generatePassword, checkEntropy, PasswordGeneratorOptions } from '@/lib/vault';
+import { generatePassword, PasswordGeneratorOptions } from '@/lib/vault';
 import { isAuthenticated } from '@/lib/auth';
 import { toast } from 'sonner';
 import { getAuthHeaders } from '@/lib/vault';
