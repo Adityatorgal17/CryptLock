@@ -101,7 +101,7 @@ export default function Home() {
                 </Link>
               </Button>
               <Button size="lg" variant="outline" asChild>
-                <Link href="https://github.com/yourusername/cryptlock" target="_blank">
+                <Link href="https://github.com/Adityatorgal17/CryptLock" target="_blank">
                   View on GitHub
                   <Github className="ml-2 h-5 w-5" />
                 </Link>

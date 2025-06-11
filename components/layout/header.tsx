@@ -95,7 +95,7 @@ export function Header() {
               <ThemeToggle />
               <Button variant="outline" size="sm" asChild>
                 <Link
-                  href="https://github.com/yourusername/cryptlock"
+                  href="https://github.com/Adityatorgal17/CryptLock"
                   target="_blank"
                 >
                   <Github className="h-4 w-4 mr-2" />
