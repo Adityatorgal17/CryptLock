@@ -18,7 +18,7 @@ export interface SigninData {
   token?: string;
 }
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL ;
 
 export async function signup(data: SignupData) {
   const response = await fetch(`${API_BASE_URL}/auth/signup`, {

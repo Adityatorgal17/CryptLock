@@ -14,8 +14,6 @@ import { Shield, Eye, EyeOff, Mail, CheckCircle } from 'lucide-react';
 import { signup } from '@/lib/auth';
 import { toast } from 'sonner';
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080';
-
 import { generateSalt, deriveVaultKey, deriveAuthKey, bufToHex } from '@/lib/utils';
 
 export default function SignupPage() {

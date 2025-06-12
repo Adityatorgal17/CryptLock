@@ -29,7 +29,7 @@ import { generatePassword, PasswordGeneratorOptions } from '@/lib/vault';
 import { isAuthenticated } from '@/lib/auth';
 import { toast } from 'sonner';
 import { getAuthHeaders } from '@/lib/vault';
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL ;
 
 export default function ToolsPage() {
   const [isAuthenticated_, setIsAuthenticated] = useState(false);
