@@ -16,6 +16,8 @@ interface UserSession {
   email?: string;
 }
 
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080';
+
 function TwoFactorSetupForm() {
   const [qrCode, setQrCode] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -114,7 +116,7 @@ function TwoFactorSetupForm() {
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 10000);
 
-      const response = await fetch('http://localhost:8080/auth/2fa/setup', {
+      const response = await fetch(`${API_BASE_URL}/auth/2fa/setup`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

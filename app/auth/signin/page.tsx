@@ -16,6 +16,8 @@ import { toast } from 'sonner';
 import { deriveVaultKey, hexToUint8Array } from '@/lib/utils';
 import { setVaultKey } from '@/lib/vault';
 
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080';
+
 export default function SigninPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -42,7 +44,7 @@ export default function SigninPage() {
     setIsLoading(true);
 
       try {
-      const response = await fetch('http://localhost:8080/auth/signin', {
+      const response = await fetch(`${API_BASE_URL}/auth/signin`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
